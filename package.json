@@ -9,8 +9,7 @@
     "npm":  "1.2.x"
   },
   "dependencies": {
-    // "duino": "0.0.7",
-    // "firmata": "0.2.4",
+    "firmata": "0.2.4",
     "serialport": "1.0.8"
   }
 }
