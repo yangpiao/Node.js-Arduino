@@ -1,0 +1,16 @@
+{
+  "name": "gadgets-project3",
+  "description": "Project 3 of the Gadgets course",
+  "version": "0.0.1",
+  "author": "Yang Piao",
+  "private": true,
+  "engines": {
+    "node": "0.8.x",
+    "npm":  "1.2.x"
+  },
+  "dependencies": {
+    // "duino": "0.0.7",
+    // "firmata": "0.2.4",
+    "serialport": "1.0.8"
+  }
+}
