@@ -1,0 +1,14 @@
+{
+  "name": "arduino-controller",
+  "description": "Arduino Controller",
+  "version": "0.0.1",
+  "author": "Yang Piao",
+  "private": true,
+  "engines": {
+    "node": "0.8.x",
+    "npm":  "1.2.x"
+  },
+  "dependencies": {
+    "firmata": "0.2.4"
+  }
+}
