@@ -4,11 +4,19 @@
   "version": "0.0.1",
   "author": "Yang Piao",
   "private": true,
+  "scripts": {
+    "start": "node app"
+  },
   "engines": {
     "node": "0.8.x",
     "npm":  "1.2.x"
   },
   "dependencies": {
+    "mongoose": "3.5.x",
+    "express": "3.1.0",
+    "consolidate": "latest",
+    "ejs": "*",
+    "less-middleware": "*",
     "firmata": "0.2.4",
     "serialport": "1.0.8"
   }
