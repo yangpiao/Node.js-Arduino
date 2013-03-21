@@ -3,10 +3,11 @@ var mg = require('mongoose'),
   SensorData = requre('./sensorData');
 
 var SensorSchema = new Schema({
-  name: { type: String, trim: true },
-  description: { type: String, trim: true },
-  data: [SensorSchema], // ?
-  created: { type: Date, default: Date.now }
+  deviceId: { type: Number, required: true },
+  name: { type: String, required: true, trim: true },
+  description: { type: String, default: '', trim: true },
+  data: [ SensorSchema ],
+  registered: { type: Date, default: Date.now }
 });
 
 module.exports = mg.model('Sensor', SensorSchema);
