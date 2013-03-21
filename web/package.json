@@ -1,6 +1,6 @@
 {
-  "name": "gadgets-project3",
-  "description": "Project 3 of the Gadgets course",
+  "name": "arduino-website",
+  "description": "Website for controlling Arduino",
   "version": "0.0.1",
   "author": "Yang Piao",
   "private": true,
@@ -12,12 +12,10 @@
     "npm":  "1.2.x"
   },
   "dependencies": {
-    "mongoose": "3.5.x",
+    "mongoose": "3.6.0",
     "express": "3.1.0",
     "consolidate": "latest",
     "ejs": "*",
-    "less-middleware": "*",
-    "firmata": "0.2.4",
-    "serialport": "1.0.8"
+    "less-middleware": "*"
   }
 }
