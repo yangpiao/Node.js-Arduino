@@ -1,7 +1,5 @@
 var mg = require('mongoose'),
   Schema = mg.Schema;
-  // SensorData = require('./sensorData'),
-  // Sensor = require('./sensor');
 
 var DeviceSchema = new Schema({
   name: { type: String, required: true, trim: true },

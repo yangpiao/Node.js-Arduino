@@ -4,14 +4,14 @@ var express = require('express'),
   app = express();
 
 // database connection
-// var mg = require('mongoose'),
-//   dbUrl = process.env.MONGOHQ_URL || 'mongodb://localhost/mydb';
-// mg.connect(dbUrl);
-// var db = mg.connection;
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function callback() {
-//   console.log('connection established');
-// });
+var mg = require('mongoose'),
+  dbUrl = process.env.MONGOHQ_URL || 'mongodb://localhost/mydb';
+mg.connect(dbUrl);
+var db = mg.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback() {
+  console.log('connection established');
+});
 
 // configurations
 app.configure(function() {
