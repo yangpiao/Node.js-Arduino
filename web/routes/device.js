@@ -1,4 +1,6 @@
-var Device = require('../models/device');
+var Device = require('../models/device'),
+  Sensor = require('../models/sensor'),
+  SensorData = require('../models/sensorData');
 
 exports.list = function(req, res) {
   Device.find(function(err, devices) {
@@ -67,10 +69,30 @@ exports.update = function(req, res) {
   });
 };
 
+function removeSensorAndData(id, res) {
+  Sensor.remove({ deviceId: id }, function(err) {
+    if (!err) {
+      SensorData.remove({ deviceId: id }, function(err) {
+        if (!err) {
+          res.send('');
+        } else {
+          res.send(400, {
+            error: err
+          });
+        }
+      });
+    } else {
+      res.send(400, {
+        error: err
+      });
+    }
+  });
+}
+
 exports.remove = function(req, res) {
   Device.findByIdAndRemove(req.params.id, function(err, device) {
     if (!err) {
-      res.send('');
+      removeSensorAndData(device._id, res);
     } else {
       res.send(400, {
         error: err

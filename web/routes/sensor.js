@@ -1,5 +1,6 @@
 var Sensor = require('../models/sensor'),
-  Device = require('../models/device');
+  Device = require('../models/device'),
+  SensorData = require('../models/sensorData');
 
 exports.list = function(req, res) {
   var deviceId = req.params.deviceId || req.query.device || null;
@@ -112,19 +113,25 @@ exports.update = function(req, res) {
   });
 };
 
+function removeData(id, res) {
+  SensorData.remove({ sensorId: id }, function(err) {
+    if (!err) {
+      res.send('');
+    } else {
+      res.send(400, {
+        error: err
+      });
+    }
+  });
+}
+
 exports.remove = function(req, res) {
   var id = req.params.id,
     deviceId = req.params.deviceId,
     cond = { _id: id, deviceId: deviceId };
   Sensor.findOneAndRemove(cond, function(err, sensor) {
     if (!err) {
-      if (sensor) {
-        res.send(sensor);
-      } else {
-        res.send(400, {
-          error: 'Sensor not found'
-        });
-      }
+      removeData(id, res);
     } else {
       res.send(400, {
         error: err
