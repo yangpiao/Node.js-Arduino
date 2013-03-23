@@ -1,6 +1,7 @@
 var express = require('express'),
   http = require('http'),
   path = require('path'),
+  sockio = require('socket.io'),
   app = express();
 
 // database connection
@@ -40,6 +41,7 @@ app.configure('development', function() {
 require('./routes')(app);
 
 // create a server instance
-http.createServer(app).listen(app.get('port'), function(){
+var server = http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+require('./ws')(sockio.listen(server));

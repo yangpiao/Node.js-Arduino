@@ -16,6 +16,7 @@
     "express": "3.1.0",
     "consolidate": "latest",
     "ejs": "*",
-    "less-middleware": "*"
+    "less-middleware": "*",
+    "socket.io": "0.9.x"
   }
 }
