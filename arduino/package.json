@@ -9,6 +9,7 @@
     "npm":  "1.2.x"
   },
   "dependencies": {
-    "firmata": "0.2.4"
+    "firmata": "0.2.4",
+    "socket.io-client": "0.9.x"
   }
 }
