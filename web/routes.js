@@ -26,4 +26,5 @@ module.exports = function(app) {
   app.get('/sensors/:sid/data', sensorData.list);
   app.post('/sensors/:sid/data', sensorData.findSensor, sensorData.create);
   app.delete('/sensors/:sid/data', sensorData.clear);
+  app.get('/sensors/:sid/poll', sensorData.poll);
 };

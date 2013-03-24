@@ -1,5 +1,6 @@
 var Sensor = require('./models/sensor'),
-  SensorData = require('./models/sensorData');
+  SensorData = require('./models/sensorData'),
+  dispatcher = require('./dispatcher');
 
 function save(data) {
   var sid = data.sensorId, cond = { _id: sid }, value = data.data;
@@ -12,7 +13,7 @@ function save(data) {
         sensorId: sid
       })).save(function(err, data) {
         if (!err) {
-          // console.log('data:', value);
+          dispatcher.dispatch(data);
         }
       });
     }
