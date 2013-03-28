@@ -19,5 +19,6 @@
     sensor.fetch();
     sensorData.set({ _id: id });
     sensorData.fetch();
+    sensorData.poll();
   };
 }(ArduinoApp, Backbone, $));

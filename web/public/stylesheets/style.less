@@ -181,5 +181,39 @@ a:hover {
       }
     }
   }
+
+  .chart {
+    font-size: 12px;
+    border: 1px solid #DDD;
+
+    .axis path, .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    // area
+    // .area {
+    //   fill: steelblue;
+    // }
+
+    // line
+    .x.axis path {
+      display: none;
+    }
+    .line {
+      fill: none;
+      stroke: steelblue;
+      stroke-width: 1.5px;
+    }
+
+    // bar
+    .bar {
+      fill: steelblue;
+    }
+    .x.axis path {
+      display: none;
+    }
+  }
 }
 

@@ -257,3 +257,27 @@ a:hover {
   background-color: #FCFCFC;
   cursor: pointer;
 }
+#main .chart {
+  font-size: 12px;
+  border: 1px solid #DDD;
+}
+#main .chart .axis path,
+#main .chart .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+#main .chart .x.axis path {
+  display: none;
+}
+#main .chart .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+#main .chart .bar {
+  fill: steelblue;
+}
+#main .chart .x.axis path {
+  display: none;
+}

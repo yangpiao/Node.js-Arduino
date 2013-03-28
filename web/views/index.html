@@ -89,11 +89,13 @@
 <!-- test -->
 <script id="chart-template" type="text/x-handlebars-template">
 <div class="chart">
-  {{#each data}}
-  <p class="point">{{this.uploaded}}:&nbsp;&nbsp;&nbsp;&nbsp;{{this.value}}</p>
-  {{/each}}
 </div>
 </script>
+<!--
+{{#each data}}
+<p class="point">{{this.uploaded}}:&nbsp;&nbsp;&nbsp;&nbsp;{{this.value}}</p>
+{{/each}}
+-->
 
 <!-- app scripts -->
 <script src="/javascripts/template-helpers.js"></script>
