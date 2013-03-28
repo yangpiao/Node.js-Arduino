@@ -13,6 +13,13 @@
     },
 
     initialize: function() {
+      this.on('change:data', function(model, value) {
+        var data = model.attributes.data;
+        if (data.length > 1000) {
+          // model.attributes.data = data.slice(data.length - 20);
+          model.attributes.data = data.slice(0, 1000);
+        }
+      });
     },
 
     parse: function(res) {
