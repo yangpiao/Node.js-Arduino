@@ -13,6 +13,6 @@ Node powered app that collects sensor data and sends commands to Arduino.
 TODO
 ----
 
-- Arduino Control (uploading data & receiving commands)
-- Real-time Chart
+- Arduino control (uploading data & receiving commands)
+- Better code for the real-time chart, now the code is like crap
 
