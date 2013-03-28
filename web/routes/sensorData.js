@@ -15,7 +15,7 @@ var _query = function(q, cond) {
   // end time
   cond.uploaded = cond.uploaded || {};
   cond.uploaded['$lte'] = to ? new Date(parseInt(to, 10)) : new Date();
-  console.log(cond);
+  // console.log(cond);
   return cond;
 };
 

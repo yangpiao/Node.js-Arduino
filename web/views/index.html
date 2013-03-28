@@ -1,3 +1,126 @@
 <% include _header.html %>
-<p>Hello World!</p>
+
+<div id="app">
+  <h1><a href="/">Arduino Control Center</a></h1>
+  <div id="main">
+    <div id="devices"></div>
+    <div id="device-view"></div>
+    <div id="sensor-data"></div>
+  </div>
+</div>
+
+<script id="device-list-template" type="text/x-handlebars-template">
+<h2>Registered Devices</h2>
+<div class="add-device simple-form"></div>
+<ul class="device-list"></ul>
+<p class="actions">
+[<a href="#" class="add">Add</a>]
+</p>
+</script>
+
+<script id="device-template" type="text/x-handlebars-template">
+<h3 class="name">{{name}}</h3>
+<p class="desc">{{description}}</p>
+<p class="regtime">Registered at {{date registered}}</p>
+<p class="actions">
+[<a href="#" class="view">View</a>]
+[<a href="#" class="edit">Edit</a>]
+[<a href="#" class="delete">Delete</a>]
+</p>
+</script>
+
+<script id="device-form-template" type="text/x-handlebars-template">
+<form action="/devices" method="post" class="device-form">
+  <legend>Add A Device</legend>
+  <p class="form-row">
+    <label for="name">Name: </label><br>
+    <input class="name" name="name" type="text" />
+  </p>
+  <p class="form-row">
+    <label for="description">Description: </label><br>
+    <input class="description" name="description" type="text" />
+  </p>
+  <p class="form-row">
+    <a class="submit" href="#">Submit</a>
+  </p>
+</form>
+</script>
+
+<script id="sensor-form-template" type="text/x-handlebars-template">
+<form action="" method="post" class="sensor-form">
+  <legend>Add A Sensor</legend>
+  <p class="form-row">
+    <label for="name">Name: </label><br>
+    <input class="name" name="name" type="text" />
+  </p>
+  <p class="form-row">
+    <label for="description">Description: </label><br>
+    <input class="description" name="description" type="text" />
+  </p>
+  <p class="form-row">
+    <a class="submit" href="#">Submit</a>
+  </p>
+</form>
+</script>
+
+<script id="device-detail-template" type="text/x-handlebars-template">
+<h3 class="name">{{name}}</h3>
+<p class="desc">{{description}}</p>
+<p class="regtime">Registered at {{date registered}}</p>
+<div class="sensors">
+  <h4>Sensors</h4>
+  <div class="add-sensor simple-form"></div>
+  <ul class="sensor-list"></ul>
+  <p class="actions">[<a href="#" class="add">Add</a>]</p>
+</div>
+</script>
+
+<script id="sensor-template" type="text/x-handlebars-template">
+<h5 class="name">{{name}}</h5>
+<p class="desc">{{description}}</p>
+<p class="regtime">Registered at {{date registered}}</p>
+<p class="actions">
+[<a href="#" class="view">View</a>]
+[<a href="#" class="edit">Edit</a>]
+[<a href="#" class="delete">Delete</a>]
+</p>
+</script>
+
+<!-- test -->
+<script id="chart-template" type="text/x-handlebars-template">
+<div class="chart">
+  {{#each data}}
+  <p class="point">{{this.uploaded}}:&nbsp;&nbsp;&nbsp;&nbsp;{{this.value}}</p>
+  {{/each}}
+</div>
+</script>
+
+<!-- app scripts -->
+<script src="/javascripts/template-helpers.js"></script>
+<script src="/javascripts/seed.js"></script>
+
+<script src="/javascripts/models/device.js"></script>
+<script src="/javascripts/models/sensor.js"></script>
+<script src="/javascripts/models/sensor-data.js"></script>
+
+<script src="/javascripts/views/device.js"></script>
+<script src="/javascripts/views/device-form.js"></script>
+<script src="/javascripts/views/devices.js"></script>
+<script src="/javascripts/views/sensor.js"></script>
+<script src="/javascripts/views/sensors.js"></script>
+<script src="/javascripts/views/sensor-form.js"></script>
+<script src="/javascripts/views/device-detail.js"></script>
+<script src="/javascripts/views/chart.js"></script>
+
+<script src="/javascripts/ctrl/devices.js"></script>
+<script src="/javascripts/ctrl/device.js"></script>
+<script src="/javascripts/ctrl/sensor.js"></script>
+
+<script src="/javascripts/router.js"></script>
+<script src="/javascripts/app.js"></script>
+
+<script>
+// test
+</script>
+
 <% include _footer.html %>
