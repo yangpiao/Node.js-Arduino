@@ -1,7 +1,8 @@
 var index = require('./routes/index'),
-  device = require('./routes/device.js'),
-  sensor = require('./routes/sensor.js'),
-  sensorData = require('./routes/sensorData.js');
+  device = require('./routes/device'),
+  sensor = require('./routes/sensor'),
+  sensorData = require('./routes/sensorData');
+  command = require('./routes/command');
 
 module.exports = function(app) {
   app.get('/', index);
@@ -27,4 +28,6 @@ module.exports = function(app) {
   app.post('/sensors/:sid/data', sensorData.findSensor, sensorData.create);
   app.delete('/sensors/:sid/data', sensorData.clear);
   app.get('/sensors/:sid/poll', sensorData.poll);
+
+  app.post('/commands/send', command.send);
 };

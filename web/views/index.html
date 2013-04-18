@@ -6,6 +6,13 @@
     <div id="devices"></div>
     <div id="device-view"></div>
     <div id="sensor-data"></div>
+
+    <div class="test">
+      <a href="#" class="command" data-pin="2" data-value="1">Pin D2 - HIGH</a> |
+      <a href="#" class="command" data-pin="2" data-value="0">Pin D2 - LOW</a> |
+      <a href="#" class="command" data-pin="3" data-value="1"
+        data-duration="1000">Pin D3 - HIGH - 1 second</a>
+    </div>
   </div>
 </div>
 
@@ -122,7 +129,17 @@
 <script src="/javascripts/app.js"></script>
 
 <script>
-// test
+$('.command').on('click', function(e) {
+  var $this = $(this);
+  var data = $this.data();
+  $.ajax({
+    url: '/commands/send',
+    method: 'POST',
+    data: data
+  });
+  e.preventDefault();
+  e.stopPropagation();
+});
 </script>
 
 <% include _footer.html %>

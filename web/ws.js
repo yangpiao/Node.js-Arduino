@@ -20,11 +20,36 @@ function save(data) {
   });
 }
 
-module.exports = function(ws) {
-  ws.sockets.on('connection', function(sock) {
-    sock.on('upload-sensor-data', function(data) {
-      // console.log('[message]', data);
-      save(data);
+
+module.exports = {
+  websocket: null,
+  socket: null,
+
+  init: function(ws) {
+    var self = this;
+    this.websocket = ws;
+    ws.sockets.on('connection', function(sock) {
+      self.socket = sock;
+      sock.on('upload-sensor-data', function(data) {
+        // console.log('[sensor]', data);
+        save(data);
+      });
     });
-  });
+  },
+
+  sendCommand: function(data) {
+    var ws = this.socket;
+    if (!ws) return;
+    console.log(data);
+    ws.emit('command', data);
+  }
 };
+
+// module.exports = function(ws) {
+//   ws.sockets.on('connection', function(sock) {
+//     sock.on('upload-sensor-data', function(data) {
+//       // console.log('[sensor]', data);
+//       save(data);
+//     });
+//   });
+// };

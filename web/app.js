@@ -44,4 +44,4 @@ require('./routes')(app);
 var server = http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
-require('./ws')(sockio.listen(server));
+require('./ws').init(sockio.listen(server));

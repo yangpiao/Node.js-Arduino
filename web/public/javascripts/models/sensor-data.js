@@ -4,8 +4,11 @@
     idAttribute: '_id',
     urlRoot: '/sensors',
     url: function() {
-      return this.urlRoot + '/' + this.id +
-        '/data?n=1000&from=' + (this.startTime() || '');
+      // return this.urlRoot + '/' + this.id +
+      //   '/data?n=1000&from=' + (this.startTime() || '');
+
+      // test
+      return this.urlRoot + '/' + this.id + '/data?n=1000';
     },
 
     defaults: function() {
