@@ -1,7 +1,7 @@
 var index = require('./routes/index'),
   device = require('./routes/device'),
   sensor = require('./routes/sensor'),
-  sensorData = require('./routes/sensorData');
+  sensorData = require('./routes/sensorData'),
   command = require('./routes/command');
 
 module.exports = function(app) {
