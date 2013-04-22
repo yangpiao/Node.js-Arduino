@@ -33,9 +33,9 @@ exports.list = function(req, res) {
   // SensorData.find(cond).sort({ uploaded: -1 }).limit(limit)
   // .sort({ uploaded: 1 })
   SensorData.find(cond).sort({ uploaded: -1 }).limit(limit)
-  .sort({ uploaded: 1 })
   .exec(function(err, data) {
     if (!err) {
+      data.reverse();
       res.send(data);
     } else {
       res.send(400, {

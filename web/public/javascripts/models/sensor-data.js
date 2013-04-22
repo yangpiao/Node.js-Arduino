@@ -1,4 +1,5 @@
 (function(App, B, $) {
+  var LIMIT = 3600;
   var oneDay = 24 * 60 * 60 * 1000;
   var SensorData = App.SensorData = B.Model.extend({
     idAttribute: '_id',
@@ -8,7 +9,7 @@
       //   '/data?n=1000&from=' + (this.startTime() || '');
 
       // test
-      return this.urlRoot + '/' + this.id + '/data?n=1000';
+      return this.urlRoot + '/' + this.id + '/data?n=' + LIMIT;
     },
 
     defaults: function() {
@@ -19,17 +20,17 @@
 
     initialize: function() {
       this.on('change:data', function(model, value) {
-        this.limit(1000);
+        this.limit(LIMIT);
       });
       this.polling = true;
     },
 
     limit: function(n) {
-      n = n || 1000;
+      n = n || LIMIT;
       var data = this.attributes.data;
       if (data.length > n) {
         this.attributes.data = data.slice(data.length - n);
-        // model.attributes.data = data.slice(0, 1000);
+        // model.attributes.data = data.slice(0, LIMIT);
       }
     },
 
@@ -47,7 +48,7 @@
               var item = data[i];
               item.uploaded = new Date(Date.parse(item.uploaded));
               d.push(item);
-              if (d.length > 1000) {
+              if (d.length > LIMIT) {
                 d.shift();
               }
             }

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "firmata": "0.2.4",
-    "socket.io-client": "0.9.x"
+    "socket.io-client": "0.9.x",
+    "twit": "1.1.6"
   }
 }
