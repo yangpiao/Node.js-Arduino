@@ -25,7 +25,6 @@ var board = new firmata.Board(serial, function(err) {
     });
 
     // upload sensor data
-    /*
     var pin;
     for (pin in sensors) {
       (function(pin) {
@@ -38,7 +37,6 @@ var board = new firmata.Board(serial, function(err) {
         }, interval);
       })(pin);
     }
-    */
 
     // wait for commands
     socket.on('command', function(data) {
